@@ -4,7 +4,6 @@ import 'package:shopping_app_ui/providers/app_navigation.dart';
 
 class MyNavigationBar extends StatefulWidget {
   const MyNavigationBar({super.key});
-
   @override
   State<MyNavigationBar> createState() => _MyNavigationBarState();
 }
@@ -12,47 +11,60 @@ class MyNavigationBar extends StatefulWidget {
 class _MyNavigationBarState extends State<MyNavigationBar> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<MyAppNavigation>(
-      builder: (context, value, child) {
-        return BottomNavigationBar(
-          backgroundColor: Colors.white,
-          iconSize: 36.0,
-          selectedItemColor: Colors.black,
-          showSelectedLabels: false,
-          onTap: (index) => {
-            setState(() {
-              value.setSelectedScreenIndex(index);
-            }),
-          },
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.blueGrey,
-                ),
-                label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.favorite,
-                  color: Colors.blueGrey,
-                ),
-                label: 'Favorites'),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.shopping_cart,
-                color: Colors.blueGrey,
-              ),
-              label: 'Shopping Cart',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.person,
-                  color: Colors.blueGrey,
-                ),
-                label: 'Profile'),
-          ],
-        );
+    var appProvider =
+        Provider.of<AppNavigationProvider>(context, listen: false);
+    return NavigationBar(
+      labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+      backgroundColor: Colors.white,
+      onDestinationSelected: (int index) {
+        setState(() {
+          appProvider.setSelectedScreenIndex(index);
+        });
       },
+      selectedIndex: appProvider.currentScreenIndex,
+      destinations: const [
+        NavigationDestination(
+            selectedIcon: Icon(
+              Icons.home,
+              color: Colors.blue,
+            ),
+            icon: Icon(
+              Icons.home,
+              color: Colors.blueGrey,
+            ),
+            label: 'Home'),
+        NavigationDestination(
+            selectedIcon: Icon(
+              Icons.favorite,
+              color: Colors.blue,
+            ),
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.blueGrey,
+            ),
+            label: 'Favorites'),
+        NavigationDestination(
+          selectedIcon: Icon(
+            Icons.shopping_cart,
+            color: Colors.blue,
+          ),
+          icon: Icon(
+            Icons.shopping_cart_outlined,
+            color: Colors.blueGrey,
+          ),
+          label: 'Shopping Cart',
+        ),
+        NavigationDestination(
+            selectedIcon: Icon(
+              Icons.person,
+              color: Colors.blue,
+            ),
+            icon: Icon(
+              Icons.person,
+              color: Colors.blueGrey,
+            ),
+            label: 'Profile'),
+      ],
     );
   }
 }

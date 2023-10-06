@@ -31,7 +31,7 @@ class MyIconButton extends StatelessWidget {
               ],
               color: Colors.white),
           padding: const EdgeInsets.all(8),
-          height: double.infinity,
+          height: 60,
           width: 80,
           child: SvgPicture.asset(icon),
         ),

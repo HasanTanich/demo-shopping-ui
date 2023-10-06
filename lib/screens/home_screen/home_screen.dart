@@ -6,14 +6,9 @@ import 'package:shopping_app_ui/screens/home_screen/home_widgets/sort_by.dart';
 import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
 import 'package:shopping_app_ui/widgets/navigation_bar.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     var homeProvider = Provider.of<HomeProvider>(context, listen: true);

@@ -19,14 +19,16 @@ class FiltersBar extends StatelessWidget {
       ButtonIcons.puma,
     ];
     return SizedBox(
-      height: 54,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: 9,
-        separatorBuilder: (context, index) => const Divider(indent: 14.0),
-        itemBuilder: (context, index) => MyIconButton(
-          icon: items[index],
-          onTap: () {},
+      height: 66,
+      child: SizedBox(
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: items.length,
+          separatorBuilder: (context, index) => const Divider(indent: 14.0),
+          itemBuilder: (context, index) => MyIconButton(
+            icon: items[index],
+            onTap: () {},
+          ),
         ),
       ),
     );
