@@ -14,7 +14,6 @@ class HomeScreen extends StatelessWidget {
     var homeProvider = Provider.of<HomeProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.menu),
         title: const Center(child: Title()),
         actions: const [
           Padding(
@@ -44,9 +43,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const FiltersBar(),
-              const SizedBox(
-                height: 16,
-              ),
               Wrap(
                 spacing: 10,
                 runSpacing: 10,
@@ -66,6 +62,9 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      drawer: const Drawer(
+        child: Center(child: Text("I am a drawer.")),
       ),
       bottomNavigationBar: const MyNavigationBar(),
     );

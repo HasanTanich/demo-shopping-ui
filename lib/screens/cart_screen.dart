@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_ui/screens/home_screen/home_widgets/filters_bar.dart';
+import 'package:shopping_app_ui/constants/custom_icons.dart';
+import 'package:shopping_app_ui/widgets/icon_button.dart';
 import 'package:shopping_app_ui/widgets/navigation_bar.dart';
 
 class CartScreen extends StatelessWidget {
@@ -7,13 +8,35 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const items = [
+      ButtonIcons.adidas,
+      ButtonIcons.airplane,
+      ButtonIcons.angel,
+      ButtonIcons.bookHeart,
+      ButtonIcons.cakeBirthday,
+      ButtonIcons.candles,
+      ButtonIcons.couple,
+      ButtonIcons.nike,
+      ButtonIcons.puma,
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text("Cart Page"),
       ),
-      body: const Center(
-        child: FiltersBar(),
-      ),
+      body: Center(
+          child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: items
+              .map(
+                (e) => MyIconButton(
+                  icon: e,
+                  onTap: () {},
+                ),
+              )
+              .toList(),
+        ),
+      )),
       bottomNavigationBar: const MyNavigationBar(),
     );
   }

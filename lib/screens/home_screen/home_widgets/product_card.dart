@@ -35,9 +35,14 @@ class HomeCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(rating.toString()),
-              isLiked
-                  ? const Icon(Icons.favorite)
-                  : const Icon(Icons.favorite_border_outlined),
+              GestureDetector(
+                onTap: () {
+                  debugPrint("Hello~!");
+                },
+                child: (isLiked
+                    ? const Icon(Icons.favorite)
+                    : const Icon(Icons.favorite_border_outlined)),
+              ),
             ],
           ),
           Text(

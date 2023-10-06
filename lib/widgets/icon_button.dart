@@ -10,31 +10,24 @@ class MyIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 4,
-      borderRadius: BorderRadius.circular(8),
-      color: Colors.transparent,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(8),
-        onTap: onTap,
-        child: Container(
-          decoration: BoxDecoration(
-              border: Border.all(color: Colors.blue[200]!),
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: const [
-                BoxShadow(
-                  offset: Offset(0, 5),
-                  spreadRadius: 0,
-                  blurRadius: 5,
-                  color: Color.fromRGBO(82, 82, 91, 0.2),
-                )
-              ],
-              color: Colors.white),
-          padding: const EdgeInsets.all(8),
-          height: 60,
-          width: 80,
-          child: SvgPicture.asset(icon),
-        ),
+    return Center(
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        height: 60,
+        width: 80,
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.blue[200]!),
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: const [
+              BoxShadow(
+                offset: Offset(0, 5),
+                spreadRadius: 0,
+                blurRadius: 5,
+                color: Color.fromRGBO(82, 82, 91, 0.2),
+              )
+            ],
+            color: Colors.white),
+        child: SvgPicture.asset(icon),
       ),
     );
   }
