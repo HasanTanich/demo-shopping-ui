@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_ui/constants/custom_icons.dart';
-import 'package:shopping_app_ui/widgets/icon_button.dart';
 import 'package:shopping_app_ui/widgets/navigation_bar.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -13,11 +11,8 @@ class FavoritesScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: const Text("Favorites Page"),
       ),
-      body: Center(
-        child: MyIconButton(
-          icon: ButtonIcons.adidas,
-          onTap: () {},
-        ),
+      body: const Center(
+        child: Text('hehe'),
       ),
       bottomNavigationBar: const MyNavigationBar(),
     );

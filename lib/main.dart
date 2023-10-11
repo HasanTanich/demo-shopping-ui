@@ -5,7 +5,7 @@ import 'package:shopping_app_ui/screens/cart_screen.dart';
 import 'package:shopping_app_ui/screens/favorites_screen.dart';
 import 'package:shopping_app_ui/screens/home_screen/home_screen.dart';
 import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
-import 'package:shopping_app_ui/screens/profile_screen.dart';
+import 'package:shopping_app_ui/screens/profile_screen/profile_screen.dart';
 
 void main() {
   runApp(

@@ -59,6 +59,11 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              homeProvider.getItemsList.isEmpty
+                  ? const Center(
+                      child: Text("No items found with the selected filters"),
+                    )
+                  : Container(),
             ],
           ),
         ),
