@@ -21,8 +21,8 @@ class SortBy extends StatelessWidget {
           const Text(
             'Sort by',
             style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              fontSize: 14,
             ),
           ),
           PopupMenuButton(

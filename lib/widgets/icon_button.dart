@@ -17,10 +17,11 @@ class MyIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Center(
+      child: Align(
+        alignment: Alignment.topLeft,
         child: Container(
           padding: const EdgeInsets.all(8),
-          height: 60,
+          height: 50,
           width: 80,
           decoration: BoxDecoration(
               border: Border.all(color: Colors.blue[200]!),

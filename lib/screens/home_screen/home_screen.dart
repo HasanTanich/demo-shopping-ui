@@ -14,17 +14,28 @@ class HomeScreen extends StatelessWidget {
     var homeProvider = Provider.of<HomeProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(
+              Icons.menu,
+              size: kToolbarHeight - 24,
+            ),
+          ),
+        ),
         title: const Center(child: Title()),
         actions: const [
           Padding(
             padding: EdgeInsets.all(12.0),
-            child: Icon(Icons.search),
+            child: Icon(Icons.search, size: kToolbarHeight - 24),
           ),
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
           child: Column(
             children: [
               const Row(
@@ -81,17 +92,21 @@ class Title extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Icon(
-          Icons.shopping_bag,
-          color: Colors.blue,
-        ),
-        Text(
-          "Shoer.lk",
-          style: TextStyle(color: Colors.blue),
-        )
-      ],
+    return const SizedBox(
+      height: kToolbarHeight - 24,
+      child: Column(
+        children: [
+          Icon(
+            size: 12,
+            Icons.shopping_bag,
+            color: Colors.blue,
+          ),
+          Text(
+            "Shoer.lk",
+            style: TextStyle(color: Colors.blue, fontSize: 16),
+          )
+        ],
+      ),
     );
   }
 }

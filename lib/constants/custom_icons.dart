@@ -9,4 +9,5 @@ class ButtonIcons {
   static const String couple = 'assets/icons/button_icons/couple.svg';
   static const String puma = 'assets/icons/button_icons/puma.svg';
   static const String nike = 'assets/icons/button_icons/nike.svg';
+  static const String bata = 'assets/icons/button_icons/bata.svg';
 }

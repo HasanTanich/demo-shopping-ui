@@ -16,19 +16,23 @@ class _FiltersBarState extends State<FiltersBar> {
     {'icon': ButtonIcons.adidas, 'name': 'adidas', 'isActive': false},
     {'icon': ButtonIcons.nike, 'name': 'nike', 'isActive': false},
     {'icon': ButtonIcons.puma, 'name': 'puma', 'isActive': false},
-    {'icon': ButtonIcons.airplane, 'name': 'bata', 'isActive': false},
-    {'icon': ButtonIcons.angel, 'name': 'bata', 'isActive': false},
-    {'icon': ButtonIcons.bookHeart, 'name': 'bata', 'isActive': false},
-    {'icon': ButtonIcons.cakeBirthday, 'name': 'bata', 'isActive': false},
-    {'icon': ButtonIcons.candles, 'name': 'bata', 'isActive': false},
-    {'icon': ButtonIcons.couple, 'name': 'bata', 'isActive': false},
+    {'icon': ButtonIcons.bata, 'name': 'bata', 'isActive': false},
+    {'icon': ButtonIcons.angel, 'name': 'angel', 'isActive': false},
+    {'icon': ButtonIcons.bookHeart, 'name': 'bookHeart', 'isActive': false},
+    {
+      'icon': ButtonIcons.cakeBirthday,
+      'name': 'cakeBirthday',
+      'isActive': false
+    },
+    {'icon': ButtonIcons.candles, 'name': 'candles', 'isActive': false},
+    {'icon': ButtonIcons.couple, 'name': 'couple', 'isActive': false},
   ];
 
   @override
   Widget build(BuildContext context) {
     var homeProvider = Provider.of<HomeProvider>(context, listen: false);
     return SizedBox(
-      height: 80,
+      height: 76,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: filterItems.length,
