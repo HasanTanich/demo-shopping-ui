@@ -38,7 +38,7 @@ var homeProductCards = [
     'image':
         'https://th.bing.com/th/id/OIP.Q65_bDLVh5JfAzDXp81SmgHaE8?w=300&h=200&c=7&r=0&o=5&pid=1.7',
     'subtitle': "Hello there I am a subtitle",
-    'price': 10.14,
+    'price': 25.14,
     'brand': 'nike',
   },
   {
@@ -48,7 +48,7 @@ var homeProductCards = [
     'image':
         'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5b0981ff-45f8-40c3-9372-32430a62aaea/dunk-high-shoes-n3vgBk.png',
     'subtitle': "I am just an extra text for testing purposes",
-    'price': 10.14,
+    'price': 60.14,
     'brand': 'nike',
   },
   {
@@ -58,7 +58,7 @@ var homeProductCards = [
     'image':
         'https://th.bing.com/th/id/OIP.Q65_bDLVh5JfAzDXp81SmgHaE8?w=300&h=200&c=7&r=0&o=5&pid=1.7',
     'subtitle': "Hello brightness my new friend.",
-    'price': 10.14,
+    'price': 50.14,
     'brand': 'nike',
   },
   {
@@ -94,7 +94,7 @@ var homeProductCards = [
 ];
 
 class HomeProvider extends ChangeNotifier {
-  String _sortType = 'title';
+  String _sortType = 'price';
   final List<String> _filters = [];
 
   List<String> get filters => _filters;
@@ -141,24 +141,4 @@ class HomeProvider extends ChangeNotifier {
       }
     });
   }
-
-  // void sortArray(List<Map<String, dynamic>> array, String parameter) {
-  //   bool desc = false;
-  //   _sortType == 'rating' ? desc = true : false;
-  //   array.sort((a, b) {
-  //     if (a[parameter] is num && b[parameter] is num) {
-  //       if (desc) {
-  //         return a[parameter] < b[parameter] ? 1 : -1;
-  //       } else {
-  //         return a[parameter] > b[parameter] ? 1 : -1;
-  //       }
-  //     } else {
-  //       if (desc) {
-  //         return (b[parameter] as String).compareTo(a[parameter] as String);
-  //       } else {
-  //         return (a[parameter] as String).compareTo(b[parameter] as String);
-  //       }
-  //     }
-  //   });
-  // }
 }
