@@ -61,18 +61,25 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   ...homeProvider.getItemsList.map(
                     (item) => HomeCard(
-                        rating: item['rating'],
-                        isLiked: item['isLiked'],
-                        title: item['title'],
-                        image: item['image'],
-                        subtitle: item['subtitle'],
-                        price: item['price']),
+                      rating: item.rating,
+                      isLiked: item.isLiked,
+                      title: item.title,
+                      image: item.image,
+                      subtitle: item.subtitle,
+                      price: item.price,
+                    ),
                   ),
                 ],
               ),
               homeProvider.getItemsList.isEmpty
-                  ? const Center(
-                      child: Text("No items found with the selected filters"),
+                  ? const Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: Center(
+                        child: Text(
+                          "No items found with the selected filters",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
                     )
                   : Container(),
             ],

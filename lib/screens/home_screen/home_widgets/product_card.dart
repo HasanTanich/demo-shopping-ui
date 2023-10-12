@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
 
-class HomeCard extends StatelessWidget {
+class HomeCard extends StatefulWidget {
   final double rating;
   final bool isLiked;
   final String title;
@@ -19,7 +21,14 @@ class HomeCard extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<HomeCard> createState() => _HomeCardState();
+}
+
+class _HomeCardState extends State<HomeCard> {
+  @override
   Widget build(BuildContext context) {
+    var homeProvider = Provider.of<HomeProvider>(context, listen: true);
+
     return Container(
       width: MediaQuery.of(context).size.width * 0.45,
       padding: const EdgeInsets.all(14.0),
@@ -35,14 +44,17 @@ class HomeCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(rating.toString()),
+                Text(widget.rating.toString()),
                 GestureDetector(
                   onTap: () {
-                    debugPrint("Hello~!");
+                    homeProvider.toggleLikeButton(widget.title);
                   },
-                  child: (isLiked
-                      ? const Icon(Icons.favorite)
-                      : const Icon(Icons.favorite_border_outlined)),
+                  child: widget.isLiked
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(Icons.favorite_border_outlined),
                 ),
               ],
             ),
@@ -53,7 +65,7 @@ class HomeCard extends StatelessWidget {
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.network(
-                  image,
+                  widget.image,
                   height: double.infinity,
                   width: double.infinity,
                   fit: BoxFit.cover,
@@ -62,7 +74,7 @@ class HomeCard extends StatelessWidget {
           SizedBox(
             height: 26,
             child: Text(
-              title,
+              widget.title,
               style: const TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold,
@@ -76,7 +88,7 @@ class HomeCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                subtitle,
+                widget.subtitle,
                 style: TextStyle(
                   fontSize: 12.0,
                   height: 20 / 14,
@@ -91,7 +103,7 @@ class HomeCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '\$$price',
+                  '\$${widget.price}',
                   style: const TextStyle(
                     fontSize: 16.0,
                     height: 24 / 16,
