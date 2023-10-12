@@ -45,7 +45,7 @@ List<HomeProductItem> homeProductCards = [
   HomeProductItem(
     rating: 5.0,
     isLiked: true,
-    title: 'Very Cool shoes',
+    title: 'Very Cool shoes 1',
     image:
         'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5b0981ff-45f8-40c3-9372-32430a62aaea/dunk-high-shoes-n3vgBk.png',
     subtitle: "I am just an extra text for testing purposes",
@@ -55,7 +55,7 @@ List<HomeProductItem> homeProductCards = [
   HomeProductItem(
     rating: 2.0,
     isLiked: true,
-    title: 'Very Cool shoes',
+    title: 'Very Cool shoes 2',
     image:
         'https://th.bing.com/th/id/OIP.Q65_bDLVh5JfAzDXp81SmgHaE8?w=300&h=200&c=7&r=0&o=5&pid=1.7',
     subtitle: "Hello brightness my new friend.",
@@ -134,19 +134,19 @@ class HomeProvider extends ChangeNotifier {
 
   void sortArray(List<HomeProductItem> array, String parameter) {
     bool desc = _sortType == 'rating';
+
+    var compareFunctions = {
+      'rating': (HomeProductItem a, HomeProductItem b) =>
+          a.rating.compareTo(b.rating),
+      'price': (HomeProductItem a, HomeProductItem b) =>
+          a.price.compareTo(b.price),
+      'title': (HomeProductItem a, HomeProductItem b) =>
+          a.title.compareTo(b.title),
+    };
+
     array.sort((a, b) {
-      if (parameter == 'rating') {
-        return desc
-            ? b.rating.compareTo(a.rating)
-            : a.rating.compareTo(b.rating);
-      } else if (parameter == 'price') {
-        return desc ? b.price.compareTo(a.price) : a.price.compareTo(b.price);
-      } else {
-        // Handle other sorting criteria if needed
-        return desc
-            ? b.title.compareTo(a.title)
-            : a.title.compareTo(b.title); // Default case
-      }
+      var compare = compareFunctions[parameter];
+      return desc ? compare!(b, a) : compare!(a, b);
     });
   }
 
