@@ -30,25 +30,27 @@ class _FiltersBarState extends State<FiltersBar> {
 
   @override
   Widget build(BuildContext context) {
-    var homeProvider = Provider.of<HomeProvider>(context, listen: false);
-    return SizedBox(
-      height: 76,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: filterItems.length,
-        separatorBuilder: (context, index) => const Divider(indent: 14.0),
-        itemBuilder: (context, index) => SizedBox(
-          height: 60,
-          child: MyIconButton(
-            icon: filterItems[index]['icon'] as String,
-            isActive: filterItems[index]['isActive'] as bool,
-            onTap: () {
-              filterItems[index]['isActive'] = !filterItems[index]['isActive'];
-              filterItems[index]['isActive'] == true
-                  ? homeProvider.addFilter(filterItems[index]['name'])
-                  : homeProvider.removeFilter(filterItems[index]['name']);
-              setState(() {});
-            },
+    return Consumer<HomeProvider>(
+      builder: (_, value, child) => SizedBox(
+        height: 76,
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          itemCount: filterItems.length,
+          separatorBuilder: (context, index) => const Divider(indent: 14.0),
+          itemBuilder: (context, index) => SizedBox(
+            height: 60,
+            child: MyIconButton(
+              icon: filterItems[index]['icon'] as String,
+              isActive: filterItems[index]['isActive'] as bool,
+              onTap: () {
+                filterItems[index]['isActive'] =
+                    !filterItems[index]['isActive'];
+                filterItems[index]['isActive'] == true
+                    ? value.addFilter(filterItems[index]['name'])
+                    : value.removeFilter(filterItems[index]['name']);
+                setState(() {});
+              },
+            ),
           ),
         ),
       ),

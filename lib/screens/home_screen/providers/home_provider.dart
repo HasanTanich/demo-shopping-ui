@@ -100,6 +100,7 @@ class HomeProvider extends ChangeNotifier {
   String _sortType = 'price';
   final List<String> _filters = [];
 
+  // getter functions
   List<String> get filters => _filters;
   String get sortType => _sortType;
   List<HomeProductItem> get getItemsList => getFilteredList(itemsList);

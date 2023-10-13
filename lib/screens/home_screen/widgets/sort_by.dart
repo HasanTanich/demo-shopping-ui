@@ -13,7 +13,7 @@ class SortBy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var homeProvider = Provider.of<HomeProvider>(context, listen: true);
+    var homeProvider = Provider.of<HomeProvider>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
       child: Row(

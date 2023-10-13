@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_ui/screens/profile_screen/item_info_screen.dart';
+import 'package:shopping_app_ui/models/api_response.dart';
+import 'package:shopping_app_ui/services/employee_services.dart';
 import 'package:shopping_app_ui/widgets/navigation_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -13,27 +14,28 @@ class ProfileScreen extends StatelessWidget {
         title: const Text("Profile Page"),
       ),
       body: Center(
-        child: ListView(
-          restorationId: 'list_demo_list_view',
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          children: [
-            for (int index = 1; index < 21; index++)
-              ListTile(
-                  leading: ExcludeSemantics(
-                    child: CircleAvatar(child: Text('$index')),
-                  ),
-                  title: Center(child: Text('$index')),
-                  trailing: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => ProfileInfoScreen(itemIndex: index),
-                          ),
-                        );
-                      },
-                      icon: const Icon(Icons.info_outline))),
-          ],
+        child: FutureBuilder<ApiResponse>(
+          future: EmployeeServices.getEmployees(),
+          builder: (BuildContext context, AsyncSnapshot<ApiResponse> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator(); // Show a loading spinner while waiting
+            } else if (snapshot.hasError) {
+              return Text(
+                  'Error: ${snapshot.error}'); // Show error message if something went wrong
+            } else {
+              return ListView(
+                children: snapshot.data?.responseData['data']
+                    .map<Widget>(
+                      (item) => ListTile(
+                        leading: Text(item['id'].toString()),
+                        title: Text(item['employee_name']),
+                        trailing: Text(item['employee_salary'].toString()),
+                      ),
+                    )
+                    .toList(),
+              );
+            }
+          },
         ),
       ),
       bottomNavigationBar: const MyNavigationBar(),
