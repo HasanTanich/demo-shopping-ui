@@ -27,8 +27,7 @@ class HttpAPI {
 
   /// The method "makeAPIcall" receives two mandatory params which are:
   /// [Enum] ApiMethod, and [String] apiPath
-  /// Params: body, contentType, headers, and [bool] authTokenRequired are optional
-  /// The parameter authTokenRequired default value is set to true
+  /// Params: body, contentType and headers
   /// The method returns a future response of the [ApiResponse] type
   /// [ApiResponse] object contains information if the request was successful [bool] success
   /// [int] status code, [String] or [Null] errorMessage, and ([dynamic]/jsonObject) responseData

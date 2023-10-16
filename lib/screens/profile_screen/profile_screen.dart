@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_ui/models/api_response.dart';
 import 'package:shopping_app_ui/services/employee_services.dart';
 import 'package:shopping_app_ui/widgets/navigation_bar.dart';
 
@@ -14,9 +13,9 @@ class ProfileScreen extends StatelessWidget {
         title: const Text("Profile Page"),
       ),
       body: Center(
-        child: FutureBuilder<ApiResponse>(
+        child: FutureBuilder<dynamic>(
           future: EmployeeServices.getEmployees(),
-          builder: (BuildContext context, AsyncSnapshot<ApiResponse> snapshot) {
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator(); // Show a loading spinner while waiting
             } else if (snapshot.hasError) {
@@ -24,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
                   'Error: ${snapshot.error}'); // Show error message if something went wrong
             } else {
               return ListView(
-                children: snapshot.data?.responseData['data']
+                children: snapshot.data
                     .map<Widget>(
                       (item) => ListTile(
                         leading: Text(item['id'].toString()),

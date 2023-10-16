@@ -1,15 +1,45 @@
+import 'dart:developer';
+
 import 'package:shopping_app_ui/helpers/http_api.dart';
-import 'package:shopping_app_ui/models/api_response.dart';
+import 'package:shopping_app_ui/models/employee.dart';
 
 class EmployeeServices {
-  static Future<ApiResponse> getEmployees() async {
-    var res = await HttpAPI.makeAPIcall(ApiMethod.get, 'employees');
-    return res;
+  static Future<dynamic> getEmployees() async {
+    try {
+      final response = await HttpAPI.makeAPIcall(ApiMethod.get, 'employees');
+      if (response.success) {
+        return response.responseData['data'];
+      }
+    } catch (e) {
+      log("Error $e");
+    }
+    return null;
   }
 
-  static Future<ApiResponse> getEmployee({required int id}) async {
-    var res = await HttpAPI.makeAPIcall(ApiMethod.get, 'employees/$id');
+  static Future<dynamic> getEmployee({required int id}) async {
+    try {
+      final response = await HttpAPI.makeAPIcall(ApiMethod.get, 'employees');
+      if (response.success) {
+        return response.responseData['data'];
+      }
+    } catch (e) {
+      log("Error $e");
+    }
+    return null;
+  }
 
-    return res;
+  static Future<bool> createEmployee({required Employee data}) async {
+    try {
+      final response = await HttpAPI.makeAPIcall(ApiMethod.post, 'create',
+          body: data.toJson());
+      if (response.success) {
+        log(response.responseData.toString());
+        return true;
+      }
+    } catch (e) {
+      log("Error $e");
+    }
+
+    return false;
   }
 }

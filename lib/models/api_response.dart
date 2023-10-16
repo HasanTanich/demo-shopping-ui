@@ -8,4 +8,11 @@ class ApiResponse {
     this.errorMessage,
     this.responseData,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'success': success,
+      'data': responseData,
+    };
+  }
 }
