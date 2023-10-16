@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         create: (_) => HomeProvider(),
         child: const HomeScreen(),
       ),
-      const FavoritesScreen(),
+      FavoritesScreen(),
       const CartScreen(),
       const ProfileScreen(),
     ];
