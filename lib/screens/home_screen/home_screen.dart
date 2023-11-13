@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
-import 'package:shopping_app_ui/screens/home_screen/widgets/app_bar_search.dart';
-import 'package:shopping_app_ui/screens/home_screen/widgets/filters_bar.dart';
-import 'package:shopping_app_ui/screens/home_screen/widgets/product_card.dart';
-import 'package:shopping_app_ui/screens/home_screen/widgets/sort_by.dart';
-import 'package:shopping_app_ui/widgets/navigation_bar.dart';
+
+import '/widgets/my_drawer.dart';
+import '/widgets/navigation_bar.dart';
+import 'providers/home_provider.dart';
+import 'widgets/app_bar_search.dart';
+import 'widgets/filters_bar.dart';
+import 'widgets/product_card.dart';
+import 'widgets/sort_by.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -92,7 +94,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         drawer: const Drawer(
-          child: Center(child: Text("I am a drawer.")),
+          child: Center(child: MyDrawer()),
         ),
         bottomNavigationBar: const MyNavigationBar(),
       ),

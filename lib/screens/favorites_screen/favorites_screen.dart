@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:shopping_app_ui/models/employee.dart';
-import 'package:shopping_app_ui/screens/favorites_screen/widgets/my_textformfield.dart';
-import 'package:shopping_app_ui/services/employee_services.dart';
-import 'package:shopping_app_ui/widgets/navigation_bar.dart';
+
+import '/helpers/helper_functions.dart';
+import '/models/employee.dart';
+import '/services/employee_services.dart';
+import '/widgets/navigation_bar.dart';
+import 'widgets/my_text_form_field.dart';
 
 final _formKey = GlobalKey<FormState>();
 
@@ -105,14 +107,13 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                       salary: salaryValue);
                   final result =
                       await EmployeeServices.createEmployee(data: data);
-                  final BuildContext context = this.context;
 
                   if (result) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Successfully created employee')));
+                    // ignore: use_build_context_synchronously
+                    displayMessageToUser("Success", context);
                   } else {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text('Failed, please try again later')));
+                    // ignore: use_build_context_synchronously
+                    displayMessageToUser("Failure", context);
                   }
                 }
               },

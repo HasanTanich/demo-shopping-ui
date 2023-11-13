@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
+
+import '../providers/home_provider.dart';
 
 class HomeCard extends StatefulWidget {
   final double rating;

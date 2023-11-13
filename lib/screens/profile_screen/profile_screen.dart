@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_ui/services/employee_services.dart';
-import 'package:shopping_app_ui/widgets/navigation_bar.dart';
+
+import '/services/employee_services.dart';
+import '/widgets/navigation_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

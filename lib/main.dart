@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_app_ui/providers/app_navigation.dart';
-import 'package:shopping_app_ui/screens/cart_screen.dart';
-import 'package:shopping_app_ui/screens/favorites_screen/favorites_screen.dart';
-import 'package:shopping_app_ui/screens/home_screen/home_screen.dart';
-import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
-import 'package:shopping_app_ui/screens/profile_screen/profile_screen.dart';
+
+import 'providers/app_navigation.dart';
+import 'screens/cart_screen.dart';
+import 'screens/favorites_screen/favorites_screen.dart';
+import 'screens/home_screen/home_screen.dart';
+import 'screens/home_screen/providers/home_provider.dart';
+import 'screens/profile_screen/profile_screen.dart';
 
 void main() {
   runApp(

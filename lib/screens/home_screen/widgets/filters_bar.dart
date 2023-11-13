@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_app_ui/constants/custom_icons.dart';
-import 'package:shopping_app_ui/screens/home_screen/providers/home_provider.dart';
-import 'package:shopping_app_ui/widgets/icon_button.dart';
+
+import '/constants/custom_icons.dart';
+import '/widgets/icon_button.dart';
+import '../providers/home_provider.dart';
 
 class FiltersBar extends StatefulWidget {
   const FiltersBar({super.key});

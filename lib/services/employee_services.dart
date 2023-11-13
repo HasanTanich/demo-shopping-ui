@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:shopping_app_ui/helpers/http_api.dart';
-import 'package:shopping_app_ui/models/employee.dart';
+import '/helpers/http_api.dart';
+import '/models/employee.dart';
 
 class EmployeeServices {
   static Future<dynamic> getEmployees() async {

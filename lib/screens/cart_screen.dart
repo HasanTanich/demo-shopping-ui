@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app_ui/widgets/navigation_bar.dart';
+
+import '/widgets/navigation_bar.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
